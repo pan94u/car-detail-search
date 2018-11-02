@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>汽车公告查询_随州炎帝网络</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="generator" content="wuzhicms 3.x" />
+    <!-- CSS -->
+    <link href="http://www.suiyan.com.cn/res/t3/css/bootstrap.css" rel="stylesheet">
+    <link href="http://www.suiyan.com.cn/res/t3/css/style.css" rel="stylesheet">
+    <link href="http://www.suiyan.com.cn/res/t3/css/hover.css" rel="stylesheet">
+    <link href="http://www.suiyan.com.cn/res/t3/css/pindao-style.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="http://www.suiyan.com.cn/res/t3/css/non-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.wuzhicms.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.wuzhicms.com/respond.js/1.4.2/respond.min.js"></script>
+    <style>
+        .img-responsive{ max-width: inherit }
+    </style>
+
+    <![endif]-->
+    <script type="text/javascript">
+        console.log("2018-11-02 15:06:54");
+        var cookie_pre = "pWZ_";var cookie_domain = '';var cookie_path = '';var web_url = 'http://www.suiyan.com.cn/';
+    </script>
+    <script src="http://www.suiyan.com.cn/res/t3/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.suiyan.com.cn/res/js/base.js"></script>
+    
+    <link rel="stylesheet" href="http://www.suiyan.com.cn/res/t3/layui/css/layui.css">
+    <script src="http://www.suiyan.com.cn/res/t3/layui/layui.js"></script>
+
+    <style type="text/css">
+        .container{width:90%;min-width:1320px;max-width:1600px !important;}
+        .input{position:relative;background:#fff;}
+        .input .prompt{position:absolute;font-size:12px;left:11px;top:3px;line-height:2; color:#999;z-index: 1}
+        .input input,.input button{position:relative;z-index: 9;background:none !important;}
+        .navbar-inverse-primary .navbar-nav > .active > a:before{display: none; }
+        .form-group label.item-tit{line-height:30px;text-align:right;font-weight: 100;font-size:13px;color:#000;}
+        .form-group:last-of-type{margin-bottom:0;}
+        .form-group .input{padding-right:0px;padding-left:0;}
+        .table{border-spacing: 0px;}
+        .ht15{height:15px;width:100%;}
+        .hr.ht15{border-top: 1px dashed #eee;}
+
+        .clear{clear:both;}
+        .hr{border-top:1px solid #eee;margin:5px 0;}
+        .layui-form-checkbox span{padding:0 7px;}
+        .layui-form-checkbox{padding-right:30px;}
+        .layui-input-block .layui-form-checkbox:last-of-type{margin-right:0;}
+
+        .layui-form-mid{padding:4px 10px;margin-right:0px;}
+        .layui-form-item .layui-input-inline{margin-right:0px;width:103px;}
+        .submitBox{text-align: center;}
+        .layui-form-select dl{top:29px;}
+        table{border-collapse:collapse !important;}
+        .table-bordered{border:none !important;}
+        .layui-input, .layui-select, .layui-textarea {border: 1px solid #d1d1d1;}
+        .layui-input:hover, .layui-textarea:hover {border-color: #33BEFF !important; }
+        .page-header {border-bottom: 1px solid #c7c7c7; }
+        .panel-default {border-color: #c7c7c7; }
+        .z_stat{text-align:center;}
+        .z_stat a{color:#fff;}
+    </style>
+
+    <script type="text/javascript">
+        $(function(){
+            $('.input input').each(function(){
+                if($(this).val().length==0){
+                    var content = $(this).attr('prompt');
+                    if(content==undefined) content = "";
+                    $(this).after("<span class='prompt'>"+content+"</span>");
+                }
+            }).focus(function(){
+                $(this).next(".prompt").css('z-index',-1);
+            }).blur(function(){
+                if($(this).val().length==0){
+                    $(this).next(".prompt").css('z-index',1);
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse-primary">
+    <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
+    <div id="navbar" class="container" style="padding-left:10px;">
+        <div class="navbar-header">
+                        <a class="navbar-brand" href="/">
+                <img src="http://www.suiyan.com.cn/uploadfile/2017/05/15/20170515173825aQS1Kq.png" height="55">
+            </a>
+                    </div>
+        <ul class="nav navbar-nav pull-right">
+                                                                <li class=""><a href="/index.php?m=car_affiche&f=index&v=init" >公告查询</a></li>                                    <li class=""><a href="/index.php?m=car_affiche&f=index&v=init" >汽车公告</a></li>                                    <li class=""><a href="/index.php?m=car_affiche&f=index&v=chassis" >底盘公告</a></li>                                    <li class=""><a href="/index.php?m=car_affiche&f=index&v=fuel" >燃油公告</a></li>                                    <li class=""><a href="/index.php?m=car_affiche&f=index&v=exemption" >免征查询</a></li>                                    <li class=""><a href="/index.php?m=car_affiche&f=index&v=protection" >环保公告</a></li>                                    <li class=""><a href="/index.php?m=car_affiche&f=index&v=cccSelect" >CCC查询</a></li>                                    </ul>
+
+    </div><!--/.nav-collapse -->
+</nav>
+<div class="container panel-heading">
+    </div><style type="text/css">
+    .form-group  label{line-height: 30px;margin-bototm:0px;}
+    .table_list{border:1px solid #eee;width:100%;}
+    .tr_list{height:80px;padding:5px 0;border-bottom:1px solid #eee;}
+    .tr_list:nth-of-type(even){background:#fcfcfc;}
+    .tr_list:hover{background:#eee;}
+    .tr_list:hover td{border-color:#fcfcfc;}
+    .tr_tit{background:#f0f0f0;}
+
+    .tr_tit th{border:1px solid #fcfcfc;line-height:40px;height:40px;overflow: hidden;padding:0px 3px;text-align:center;}
+    .tr_list td{border:1px solid #eee;cursor:default;text-align:center;}
+    .tr_list div{padding:2px 3px;box-sizing: border-box;text-overflow: ellipsis;overflow: hidden;max-height:80px;word-wrap:break-word;line-height:19px;text-align:center;}
+    .old_btn{position:absolute;right:10px;top:-75px;}
+    #ourlSearch{display: none;}
+
+    .view-blank {}
+.view-table { width:100%;}
+.view-table table{ border:1px solid #000;}
+.view-table .cp-hang { color:#F60; font-size:16px; font-weight:600; text-align:center;}
+
+.view-table .view-table-first td:nth-child(odd){font-weight:600; padding-left:5px; width:15%; background:#FAFAFA;}
+.view-table .view-table-second td:nth-child(odd){font-weight:600; padding-left:5px; width:15%; background:#FAFAFA;}
+.view-table .view-table-three tr:nth-child(2){font-weight:600; padding-left:5px; width:15%; background:#FAFAFA;}
+
+.view-table .view-table-title-first td:first-child { color:#F60; font-size:16px; font-weight:600; text-align:center; background:#F5F5F5;}
+.view-table .view-table-title-second td:first-child  { color:#F60; font-size:16px; font-weight:600; text-align:center; background:#F5F5F5;}
+.view-table .view-table-title-three td:first-child  { color:#F60; font-size:16px; font-weight:600; text-align:center; background:#F5F5F5;}
+.view-table table td{ word-wrap: break-word; word-break:break-all;}
+
+.code_box{
+    float:left;
+    width:39%;
+    height:500px;
+}
+.show_box{
+    float:right;
+    width:60%;
+}
+#content{
+    width:100%;
+    height:100%;
+    border:1px solid #eee;
+    padding:15px;
+}
+</style>
+
+
+<link type="text/css" rel="stylesheet" href="http://www.suiyan.com.cn/res/css/style_address.css">
+
+<div class="container">
+    
+<div class="code_box">
+    <h3 onclick="jsCopy()" class="btn btn-primary">复制代码</h3>
+    <textarea id="content">&lt;table class=&quot;table table-bordered view-table-first&quot;&gt;
+&lt;tbody&gt;
+    &lt;tr class=&quot;view-table-title-first&quot;&gt;
+    &lt;td colspan=&quot;4&quot;&gt;比亚迪牌QCJ7152ET2轿车主要技术参数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;产品商标&lt;/td&gt;
+    &lt;td&gt;比亚迪牌&lt;/td&gt;
+    &lt;td&gt;企业名称&lt;/td&gt;
+    &lt;td&gt;比亚迪汽车工业有限公司&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;车辆型号&lt;/td&gt;
+    &lt;td&gt;QCJ7152ET2&lt;/td&gt;
+    &lt;td&gt;公告批次&lt;/td&gt;
+    &lt;td&gt;254&lt;/td&gt;
+    &lt;/tr&gt;   &lt;tr&gt;
+    &lt;td&gt;外形尺寸(mm)&lt;/td&gt;
+    &lt;td&gt;4870×1830×1460&lt;/td&gt;
+    &lt;td&gt;罐体容积(m3)&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;总质量(kg)&lt;/td&gt;
+      &lt;td&gt;1865&lt;/td&gt;
+      &lt;td&gt;额定质量(kg)&lt;/td&gt;
+      &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;整备质量(kg)&lt;/td&gt;
+    &lt;td&gt;1490&lt;/td&gt;
+    &lt;td&gt;前排乘客(人)&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;轴荷(kg)&lt;/td&gt;
+    &lt;td&gt;969/896&lt;/td&gt;
+    &lt;td&gt;免征&lt;/td&gt;
+    &lt;td&gt;&lt;span class='label label-default'&gt;否&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;最高时速(km/h)&lt;/td&gt;
+    &lt;td&gt;210&lt;/td&gt;
+    &lt;td&gt;燃油&lt;/td&gt;
+    &lt;td&gt;&lt;span class='label label-default'&gt;否&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;油耗(L/100Km)&lt;/td&gt;
+    &lt;td&gt;6.9&lt;/td&gt;
+    &lt;td&gt;环保&lt;/td&gt;
+    &lt;td&gt;&lt;span class='label label-success'&gt;是&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;燃油类型&lt;/td&gt;
+      &lt;td&gt;汽油&lt;/td&gt;
+      &lt;td&gt;排放标准&lt;/td&gt;
+      &lt;td&gt;国四&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;其他&lt;/td&gt;
+    &lt;td colspan=&quot;3&quot;&gt;选装天窗、轮辋、座椅、外后视镜、前雾灯、前组合灯、前照灯清洗器、前探头、摄像头、倒车雷达、儿童座椅固定装置、ABS、侧气帘,车顶天线、车外装饰件、尾部字标、侧气囊.ABS型号:ABS;ABS生产企业:博世汽车部件(苏州)有限公司;ESC型号:ESP9,ESC生产企业:博世汽车部件(苏州)有限公司.LC0CG6DF×××××××××为带安全带、安全气囊的车型VIN号,LC0CG6CF×××××××××为带安全带、安全气囊和侧气帘的车型VIN号。&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;clear view-blank&quot;&gt;&lt;/div&gt;
+&lt;table class=&quot;table table-bordered  view-table-second&quot; &gt;
+&lt;tbody&gt;
+    &lt;tr class=&quot;view-table-title-second&quot;&gt;
+    &lt;td colspan=&quot;4&quot;&gt;比亚迪牌QCJ7152ET2轿车底盘参数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;底盘型号&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;底盘品牌&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;轴 数&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;   
+    &lt;td&gt;前轮距(mm)&lt;/td&gt;
+    &lt;td&gt;1555&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;    
+    &lt;td&gt;轴 距(mm)&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;    
+    &lt;td&gt;后轮距(mm)&lt;/td&gt;
+    &lt;td&gt;1555&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;轮 胎 数:&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;轮胎规格&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;接近离去角&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;前悬后悬&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;clear view-blank&quot;&gt;&lt;/div&gt;
+&lt;table class=&quot;table table-bordered  view-table-three&quot; &gt;
+  &lt;tbody&gt;
+    &lt;tr class=&quot;view-table-title-three&quot;&gt;
+      &lt;td colspan=&quot;4&quot;&gt;比亚迪牌QCJ7152ET2轿车发动机参数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;发动机型号&lt;/td&gt;
+      &lt;td&gt;发动机生产企业&lt;/td&gt;
+      &lt;td&gt;排量(ML)&lt;/td&gt;
+      &lt;td&gt;功率(ML)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt; &lt;td&gt;BYD476ZQA&lt;/td&gt; &lt;td&gt;比亚迪汽车有限公司&lt;/td&gt; &lt;td&gt;1497&lt;/td&gt; &lt;td&gt;113&lt;/td&gt; &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</textarea>
+</div>
+<div class="show_box">
+    <h3 style="height:39px;line-height: 39px;">展示效果</h3>
+    <div class="view-table" id="showTable">
+    <table class="table table-bordered view-table-first">
+<tbody>
+    <tr class="view-table-title-first">
+    <td colspan="4">比亚迪牌QCJ7152ET2轿车主要技术参数</td>
+    </tr>
+    <tr>
+    <td>产品商标</td>
+    <td>比亚迪牌</td>
+    <td>企业名称</td>
+    <td>比亚迪汽车工业有限公司</td>
+    </tr>
+    <tr>
+    <td>车辆型号</td>
+    <td>QCJ7152ET2</td>
+    <td>公告批次</td>
+    <td>254</td>
+    </tr>   <tr>
+    <td>外形尺寸(mm)</td>
+    <td>4870×1830×1460</td>
+    <td>罐体容积(m3)</td>
+    <td></td>
+    </tr>
+    <tr>
+      <td>总质量(kg)</td>
+      <td>1865</td>
+      <td>额定质量(kg)</td>
+      <td></td>
+    </tr>
+    <tr>
+    <td>整备质量(kg)</td>
+    <td>1490</td>
+    <td>前排乘客(人)</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>轴荷(kg)</td>
+    <td>969/896</td>
+    <td>免征</td>
+    <td><span class='label label-default'>否</span></td>
+    </tr>
+    <tr>
+    <td>最高时速(km/h)</td>
+    <td>210</td>
+    <td>燃油</td>
+    <td><span class='label label-default'>否</span></td>
+    </tr>
+    <tr>
+    <td>油耗(L/100Km)</td>
+    <td>6.9</td>
+    <td>环保</td>
+    <td><span class='label label-success'>是</span></td>
+    </tr>
+    <tr>
+      <td>燃油类型</td>
+      <td>汽油</td>
+      <td>排放标准</td>
+      <td>国四</td>
+    </tr>
+    <tr>
+    <td>其他</td>
+    <td colspan="3">选装天窗、轮辋、座椅、外后视镜、前雾灯、前组合灯、前照灯清洗器、前探头、摄像头、倒车雷达、儿童座椅固定装置、ABS、侧气帘,车顶天线、车外装饰件、尾部字标、侧气囊.ABS型号:ABS;ABS生产企业:博世汽车部件(苏州)有限公司;ESC型号:ESP9,ESC生产企业:博世汽车部件(苏州)有限公司.LC0CG6DF×××××××××为带安全带、安全气囊的车型VIN号,LC0CG6CF×××××××××为带安全带、安全气囊和侧气帘的车型VIN号。</td>
+    </tr>
+</tbody>
+</table>
+<div class="clear view-blank"></div>
+<table class="table table-bordered  view-table-second" >
+<tbody>
+    <tr class="view-table-title-second">
+    <td colspan="4">比亚迪牌QCJ7152ET2轿车底盘参数</td>
+    </tr>
+    <tr>
+    <td>底盘型号</td>
+    <td></td>
+    <td>底盘品牌</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>轴 数</td>
+    <td></td>   
+    <td>前轮距(mm)</td>
+    <td>1555</td>
+    </tr>
+    <tr>    
+    <td>轴 距(mm)</td>
+    <td></td>    
+    <td>后轮距(mm)</td>
+    <td>1555</td>
+    </tr>
+    <tr>
+    <td>轮 胎 数:</td>
+    <td></td>
+    <td>轮胎规格</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>接近离去角</td>
+    <td></td>
+    <td>前悬后悬</td>
+    <td></td>
+    </tr>
+    </tbody>
+</table>
+<div class="clear view-blank"></div>
+<table class="table table-bordered  view-table-three" >
+  <tbody>
+    <tr class="view-table-title-three">
+      <td colspan="4">比亚迪牌QCJ7152ET2轿车发动机参数</td>
+    </tr>
+    <tr>
+      <td>发动机型号</td>
+      <td>发动机生产企业</td>
+      <td>排量(ML)</td>
+      <td>功率(ML)</td>
+    </tr>
+    <tr> <td>BYD476ZQA</td> <td>比亚迪汽车有限公司</td> <td>1497</td> <td>113</td> </tr>
+  </tbody>
+</table>    </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    obj=document.getElementById("content");//对象是content
+    function jsCopy(){
+        obj.select(); //选择对象
+        document.execCommand("Copy"); //执行浏览器复制命令
+
+        layui.use('layer', function(){
+            var layer = layui.layer;
+          
+            layer.msg("已复制成功，可以前往粘贴了！"); 
+        }); 
+    }
+    var oShow=document.getElementById("showTable");//对象是content
+    obj.style.height = oShow.offsetHeight+"px";
+
+</script> 
+
+<link rel="stylesheet" href="http://www.suiyan.com.cn/res/js/dialog/ui-dialog.css" />
+<script src="http://www.suiyan.com.cn/res/js/dialog/dialog-plus.js"></script>
+<script src="http://www.suiyan.com.cn/res/js/dialog/dialog-plus.js"></script>
+<script src="http://www.suiyan.com.cn/res/js/base.js"></script>
+<script src="./utils/parse.js"></script>
+<div class="z_stat" ><script src="https://s19.cnzz.com/z_stat.php?id=1261984826&web_id=1261984826" language="JavaScript"></script></div>
+</body>
+</html>
