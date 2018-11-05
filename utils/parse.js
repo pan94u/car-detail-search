@@ -7,5 +7,4 @@ for(var i=0;i<rows.length;i++){    //--循环所有的行
       arr.push(cells[j].innerText);
   }
 }
-console.log(rows)
 console.log(arr)

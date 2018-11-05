@@ -23,7 +23,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-    console.log('res' + JSON.stringify(res))
+    return res
   },
   error => {
     console.log('err' + error) // for debug
