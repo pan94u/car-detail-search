@@ -10,11 +10,14 @@ const pool = mysql.createPool({
   queueLimit: 0
 })
 
-// 34
 export function insert(data){
-  pool.query('INSERT INTO detail(id,model,chanpinshangbiao,qiyemingcheng,cheliangxinghao,gonggaopici,waixingchicun,meitirongji,zongzhiliang,edingzhiliang,zhengbeizhiliang,qianpaichengke,zhouhe,mianzheng,zuigaoshisu,ranyou,youhao,huanbao,ranyouleixing,paifangbiaozhun,zhuyao_qita,dipanxinghao,dipanpinpai,zhoushu,qianlunju,zhouju,houlunju,luntaishu,luntaiguige,jiejinliqujiao,qianxuanhouxuan,fadongjixinghao,fadongjishengchanqiye,pailiang,gonglv) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', data, function (error, results, fields) {
+  let sql = 'REPLACE INTO detail(id,model,chanpinshangbiao,qiyemingcheng,cheliangxinghao,gonggaopici,waixingchicun,meitirongji,zongzhiliang,edingzhiliang,zhengbeizhiliang,qianpaichengke,zhouhe,mianzheng,zuigaoshisu,ranyou,youhao,huanbao,ranyouleixing,paifangbiaozhun,zhuyao_qita,dipanxinghao,dipanpinpai,zhoushu,qianlunju,zhouju,houlunju,luntaishu,luntaiguige,jiejinliqujiao,qianxuanhouxuan,fadongjixinghao,fadongjishengchanqiye,pailiang,gonglv) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  sql = mysql.format(sql, data);
+  pool.query(sql, function (error, results, fields) {
+    
     if (error) {
-      console.log(error)
+      console.log('errsql:'+sql)
+      console.log(data)
       // throw error
     };
     return new Promise((resolve, reject) => {
