@@ -17,12 +17,12 @@ let queue = new Queue(10,{
 readXls()
 function readXls (){
   //读取车辆型号表格文件
-  const workSheetsFromFile = xlsx.parse(`${__dirname}/data.xlsx`);
+  const workSheetsFromFile = xlsx.parse(`${__dirname}/singledata.xlsx`);
   //读出的型号数组
   let arr = workSheetsFromFile[0].data.map((val) => {
     return val[0]
   })
-  work(arr.slice(0,50))
+  work(arr.slice(0,20))
 }
 
 function work (arr){
@@ -37,62 +37,75 @@ function work (arr){
 
 function getDetail(model){
   getCar(model).then((res) => {
-    let id = res.result[0].id
-    getCarDetail(id).then((res) => {
-      let $ = cheerio.load(res)
-      //----------主要参数----------
-      let mainTb = $('.view-table-first tbody tr td')    //获取主要参数table
-      let mainDetail = []
-      //遍历表格所有内容
-      mainTb.each(function(i, elem){
-        mainDetail.push($(this).text())
-      })
-      //删除第一个（标题）
-      mainDetail.splice(0, 1)
-      //取偶数项（详情内容）
-      let mainDetailData = mainDetail.filter((currentVal, index) => {
-        if(index % 2 != 0){
-          if(!currentVal){
-            return ' '
+    console.log('getCarRes:' + JSON.stringify(res.result))
+    if(!res.result){
+      let arr = new Array(34)
+      arr[1] = model
+      insert(arr)
+    }
+    else{
+      let id = res.result[0].id
+      getCarDetail(id).then((res) => {
+        let $ = cheerio.load(res)
+        //----------主要参数----------
+        let mainTb = $('.view-table-first tbody tr td')    //获取主要参数table
+        let mainDetail = []
+        //遍历表格所有内容
+        mainTb.each(function(i, elem){
+          mainDetail.push($(this).text())
+        })
+        //删除第一个（标题）
+        mainDetail.splice(0, 1)
+        //取偶数项（详情内容）
+        let mainDetailData = mainDetail.filter((currentVal, index) => {
+          if(index % 2 != 0){
+            if(!currentVal){
+              return ' '
+            }
+            return currentVal
           }
-          return currentVal
-        }
-      })
-      mainDetailData.splice(0, 0, parseInt(id))
-      //----------底盘参数----------
-      let dipanTb = $('.view-table-second tbody tr td')    //获取底盘参数table
-      let dipanDetail = []
-      //遍历表格所有内容
-      dipanTb.each(function(i, elem){
-        dipanDetail.push($(this).text())
-      })
-      //删除第一个（标题）
-      dipanDetail.splice(0, 1)
-      //取偶数项（详情内容）
-      let dipanDetailData = dipanDetail.filter((currentVal, index) => {
-        if(index % 2 != 0){
-          if(!currentVal){
-            return ' '
+        })
+        mainDetailData.splice(0, 0, id, model)
+        //----------底盘参数----------
+        let dipanTb = $('.view-table-second tbody tr td')    //获取底盘参数table
+        let dipanDetail = []
+        //遍历表格所有内容
+        dipanTb.each(function(i, elem){
+          dipanDetail.push($(this).text())
+        })
+        //删除第一个（标题）
+        dipanDetail.splice(0, 1)
+        //取偶数项（详情内容）
+        let dipanDetailData = dipanDetail.filter((currentVal, index) => {
+          if(index % 2 != 0){
+            if(!currentVal){
+              return ' '
+            }
+            return currentVal
           }
-          return currentVal
-        }
+        })
+        //----------发动机参数----------
+        let fadongjiTb = $('.view-table-three tbody tr td')    //获取底盘参数table
+        let fadongjiDetail = []
+        //遍历表格所有内容
+        fadongjiTb.each(function(i, elem){
+          fadongjiDetail.push($(this).text())
+        })
+        //删除第一个（标题）
+        fadongjiDetail.splice(0, 5)
+        //取偶数项（详情内容）
+        let fadongjiData = fadongjiDetail.filter((currentVal, index) => {
+            return currentVal
+        })
+        let data = mainDetailData.concat(dipanDetailData, fadongjiDetail)
+        insert(data)
+      }).catch((err) => {
+        console.log(`getCarErr:` + err)
       })
-      //----------发动机参数----------
-      let fadongjiTb = $('.view-table-three tbody tr td')    //获取底盘参数table
-      let fadongjiDetail = []
-      //遍历表格所有内容
-      fadongjiTb.each(function(i, elem){
-        fadongjiDetail.push($(this).text())
-      })
-      //删除第一个（标题）
-      fadongjiDetail.splice(0, 5)
-      //取偶数项（详情内容）
-      let fadongjiData = fadongjiDetail.filter((currentVal, index) => {
-          return currentVal
-      })
-      let data = mainDetailData.concat(dipanDetailData, fadongjiDetail)
-      insert(data)
-    })
+    }
+    
+  }).catch((err) => {
+    console.log(`getCarErr:` + err)
   })
 }
 
