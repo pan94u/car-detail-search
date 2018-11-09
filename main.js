@@ -14,8 +14,8 @@ let queue = new Queue(10,{
   ,"retry":1 //出错重试次数 默认0;
   ,'workAdd':workAdd //workAdd只会在push/unshift方法添向项时才触发！
 })
-readXls()
-// getDetail('BMW7200QL(BMW320Li)')
+// readXls()
+getDetail('BMW7200QL(BMW320Li)')
 function readXls (){
   //读取车辆型号表格文件
   const workSheetsFromFile = xlsx.parse(`${__dirname}/singledata.xlsx`);
@@ -23,7 +23,7 @@ function readXls (){
   let arr = workSheetsFromFile[0].data.map((val) => {
     return val[0]
   })
-  work(arr.slice(0,500))
+  work(arr.slice(1,20))
   // work(arr)
 }
 
@@ -43,7 +43,7 @@ function getDetail(model){
       if(!res.result){
         let arr = new Array(35)
         arr[1] = model
-        insert(arr).then((result) => {resolve(result)})
+        insert(arr).then((result) => {resolve(result)}).catch((err)=>{console.log(err)})
       }
       else{
         let id = res.result[0].id
@@ -100,20 +100,21 @@ function getDetail(model){
               return currentVal
           })
           let data = mainDetailData.concat(dipanDetailData, fadongjiData)
-          insert(data).then((result) => {resolve(result)})
+          console.log('success~~')
+          insert(data).then((result) => {resolve(result)}).catch((err)=>{console.log(err)})
         }).catch((err) => {
           let arr = new Array(35)
           arr[1] = model
-          insert(arr).then((result) => {resolve(result)})
-          console.log(`getCarErr:` + err)
+          // insert(arr).then((result) => {resolve(result)})
+          console.log(`getCarErr1:` + err)
         })
       }
       
     }).catch((err) => {
       let arr = new Array(35)
       arr[1] = model
-      insert(arr).then((result) => {resolve(result)})
-      console.log(`getCarErr:` + err)
+      insert(arr).then((result) => {resolve(result)}).catch((err)=>{console.log(err)})
+      console.log(`getCarErr2:` + err)
     })
   })
 

@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "babel-node ./main.js"
+    "start": "babel-node ./main.js",
+    "debug": "babel-node ./main.js --inspect --debug-brk --nolazy ./main.js"
   },
   "dependencies": {
     "async": "^2.6.1",

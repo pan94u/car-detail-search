@@ -11,10 +11,11 @@ const pool = mysql.createPool({
 })
 
 export function insert(data){
-  let sql = 'REPLACE INTO detail(id,model,chanpinshangbiao,qiyemingcheng,cheliangxinghao,gonggaopici,waixingchicun,meitirongji,zongzhiliang,edingzhiliang,zhengbeizhiliang,qianpaichengke,zhouhe,mianzheng,zuigaoshisu,ranyou,youhao,huanbao,ranyouleixing,paifangbiaozhun,zhuyao_qita,dipanxinghao,dipanpinpai,zhoushu,qianlunju,zhouju,houlunju,luntaishu,luntaiguige,jiejinliqujiao,qianxuanhouxuan,fadongjixinghao,fadongjishengchanqiye,pailiang,gonglv) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  let sql = 'INSERT INTO detail(id,model,chanpinshangbiao,qiyemingcheng,cheliangxinghao,gonggaopici,waixingchicun,meitirongji,zongzhiliang,edingzhiliang,zhengbeizhiliang,qianpaichengke,zhouhe,mianzheng,zuigaoshisu,ranyou,youhao,huanbao,ranyouleixing,paifangbiaozhun,zhuyao_qita,dipanxinghao,dipanpinpai,zhoushu,qianlunju,zhouju,houlunju,luntaishu,luntaiguige,jiejinliqujiao,qianxuanhouxuan,fadongjixinghao,fadongjishengchanqiye,pailiang,gonglv) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
   sql = mysql.format(sql, data);
   pool.query(sql, function (error, results, fields) {
-    
+    console.log('sql success~~')
+    console.log(error,results,fields)
     if (error) {
       console.log('errsql:'+sql)
       console.log(data)
